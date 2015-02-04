@@ -1,0 +1,28 @@
+---
+title: "Project1"
+author: "dar7yl"
+date: "Tuesday, February 03, 2015"
+output: html_document
+---
+
+ Git fork: <https://github.com/dar7yl/ExData_Plotting1>
+
+ Data source: <https://archive.ics.uci.edu/ml/datasets/Individual+household+electric+power+consumption#>
+ 
+```{r}
+file.info("exdata_data_household_power_consumption.zip")
+```
+
+
+```{r}
+
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
