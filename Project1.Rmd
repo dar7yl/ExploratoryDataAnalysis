@@ -3,6 +3,7 @@ title: "Project1"
 author: "dar7yl"
 date: "Tuesday, February 03, 2015"
 output: html_document
+$Revision: $
 ---
 ```{r}
 ```
@@ -48,6 +49,9 @@ if (hpc_cached != 0)
 					& household_power_consumption$Date <="2007-02-02")
 	hpc <- household_power_consumption[dt,]
 	
+	# convert date+time to datetime column - convolution because POSIXct doesn't support adding.
+	hpc$DateTime=as.POSIXct(paste(format(hpc$Date),hpc$Time,sep=" "))
+	
 	save("hpc", file=file.path("data", "hpc.RData"))
 	file.info(file=file.path("data", "hpc.RData"))
 }
@@ -72,8 +76,10 @@ hist( hpc$Global_active_power,
 
 rug(hpc$Global_active_power)
 
-with( hpc, {plot(Date,Sub_metering_1, type="l", col="black", ylab="Energy sub metering"); 
-				lines(Sub_metering_2, col="red"); lines(Sub_metering_3, col="blue");
+with( hpc, {plot(DateTime,Sub_metering_1, col="black", 
+					  type="l", ylab="Energy sub metering"); 
+				lines(DateTime,Sub_metering_2, col="red"); 
+				lines(DateTime,Sub_metering_3, col="blue");
 				})
 legend("topright", legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
 		col=c("black", "red", "blue"), lty=c(1,1,1) )
