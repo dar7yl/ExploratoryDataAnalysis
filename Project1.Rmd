@@ -13,13 +13,13 @@ $Revision: $
 
  Data source: <https://archive.ics.uci.edu/ml/datasets/Individual+household+electric+power+consumption#>
  
-```{r}
+```{r check_data}
 file.info("exdata_data_household_power_consumption.zip")$ctime
 ```
 
 ## Loading the data
 (hint from <http://stackoverflow.com/questions/13022299/specify-date-format-for-colclasses-argument-in-read-table-read-csv/13022441#13022441>)
-```{r}
+```{r load_data}
 
 # first check to see if we have cached the file
 
@@ -64,7 +64,7 @@ summary(hpc)
 
 Exploratory plots:
 
-```{r, echo=FALSE}
+```{r, plot_graphs, echo=FALSE}
 plot(hpc$Global_active_power, type="l")
 plot(hpc$Voltage, type="l")
 plot(hpc$Global_intensity, type="l")
