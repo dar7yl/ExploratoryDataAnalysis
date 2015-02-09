@@ -44,8 +44,8 @@ source("src/plot3.R")
 ```
 ![plot #3](figure/plot3.png) 
 
+------------------
 Exploratory plots:
-
 ```{r, plot_graphs, echo=FALSE}
 plot(hpc$Global_active_power, type="l")
 plot(hpc$Voltage, type="l")
